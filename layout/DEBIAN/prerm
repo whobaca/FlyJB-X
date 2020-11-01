@@ -1,0 +1,36 @@
+#!/bin/bash
+
+echo "[FlyJB X] 파일 삭제 중..."
+if [[ -f "/private/var/mobile/Library/Preferences/kr.xsf1re.flyjb_Enabler.plist" ]]; then
+	rm -f "/private/var/mobile/Library/Preferences/kr.xsf1re.flyjb_Enabler.plist" &> /dev/null
+else
+	echo "[FlyJB X] kr.xsf1re.flyjb_Enabler.plist 파일을 찾을 수 없습니다."
+fi
+if [[ -f "/Library/MobileSubstrate/DynamicLibraries/FlyJBX.dylib" ]]; then
+	rm -f "/Library/MobileSubstrate/DynamicLibraries/FlyJBX.dylib" &> /dev/null
+else
+	echo "[FlyJB X] FlyJBX.dylib 파일을 찾을 수 없습니다."
+fi
+if [[ -f "/Library/MobileSubstrate/DynamicLibraries/FlyJBX.plist" ]]; then
+	rm -f "/Library/MobileSubstrate/DynamicLibraries/FlyJBX.plist" &> /dev/null
+else
+	echo "[FlyJB X] FlyJBX.plist 파일을 찾을 수 없습니다."
+fi
+echo "[FlyJB X]이름 변경한 파일들을 원상태로 돌려놓는 중..."
+if [[ -f "/Library/MobileSubstrate/DynamicLibraries/ FlyJBX.dylib" ]]; then
+	mv "/Library/MobileSubstrate/DynamicLibraries/ FlyJBX.dylib" "/Library/MobileSubstrate/DynamicLibraries/FlyJBX.dylib" &> /dev/null
+else
+	echo "[FlyJB X] 이름이 변경된 FlyJBX.dylib 파일을 찾을 수 없습니다."
+fi
+if [[ -f "/Library/MobileSubstrate/DynamicLibraries/ FlyJBX.plist" ]]; then
+	mv "/Library/MobileSubstrate/DynamicLibraries/ FlyJBX.plist" "/Library/MobileSubstrate/DynamicLibraries/FlyJBX.plist" &> /dev/null
+else
+	echo "[FlyJB X] 이름이 변경된 FlyJBX.plist 파일을 찾을 수 없습니다."
+fi
+if [[ -f "/private/var/mobile/Library/Preferences/FJMemory" ]]; then
+	rm -f "/private/var/mobile/Library/Preferences/FJMemory" &> /dev/null
+else
+	echo "[FlyJB X] FJMemory 파일을 찾을 수 없습니다."
+fi
+
+echo "[FlyJB X] 삭제 작업이 완료되었습니다."
